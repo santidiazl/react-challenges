@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-const randomPosition = (top) => {
-  if (top) {
-    return Math.floor(Math.random() * (window.innerHeight - 105));
-  }
-  return Math.floor(Math.random() * (window.innerWidth - 405));
+const getRandomPosition = () => {
+  const top = Math.floor(Math.random() * (window.innerHeight - 105));
+  const left = Math.floor(Math.random() * (window.innerWidth - 405));
+
+  return [top, left];
 };
 
-const Modal = ({ id, handleOpen, handleClose, styles }) => {
-  const { top, left } = styles;
+const Spinner = () => <div className="spinner" />;
+
+const Modal = ({ id, handleOpen, handleClose, position }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [top, left] = position;
+
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 1000);
+  }, []);
+
   return (
     <div>
       <div className="modal-background" style={{ zIndex: id + 2 }} />
@@ -18,12 +26,17 @@ const Modal = ({ id, handleOpen, handleClose, styles }) => {
         id={id}
         style={{ top, left, zIndex: id + 3 }}
       >
-        Modals on modals
-        <Button text="Open new modal" handleClick={handleOpen} />
-        <Button
-          text="Close new modal"
-          handleClick={(e) => handleClose(e, id)}
-        />
+        {isLoading && <Spinner />}
+        {!isLoading && (
+          <div>
+            "Modals on modals"
+            <Button text="Open new modal" handleClick={handleOpen} />
+            <Button
+              text="Close new modal"
+              handleClick={(e) => handleClose(e, id)}
+            />{' '}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -37,16 +50,24 @@ const Button = ({ text, handleClick }) => {
   );
 };
 
-function App() {
+const App = () => {
   const [modals, setModals] = useState([]);
   const [id, setId] = useState(null);
 
   const handleOpen = (e) => {
     const modalId = id === null ? 0 : id;
-    const top = randomPosition(true);
-    const left = randomPosition(false);
     setId(id + 1);
-    const newState = [...modals, { id: modalId, top, left }];
+    const position = getRandomPosition();
+    const newModal = { id: modalId, position };
+
+    let newState = null;
+
+    if (modals.length < 10) {
+      newState = [...modals, newModal];
+    } else {
+      newState = [...modals.slice(1), newModal];
+    }
+
     setModals(newState);
   };
 
@@ -63,17 +84,17 @@ function App() {
     <div className="App">
       Modals on modals
       <Button text="Open new modal" handleClick={handleOpen} />
-      {modals.map(({ id, ...modal }) => (
+      {modals.map(({ id, position }) => (
         <Modal
           id={id}
           handleOpen={handleOpen}
           handleClose={handleClose}
           key={`modal_${id}`}
-          styles={modal}
+          position={position}
         />
       ))}
     </div>
   );
-}
+};
 
 export default App;
