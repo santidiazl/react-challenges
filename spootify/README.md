@@ -1,9 +1,6 @@
-# Spootify Coding Challenge 🎧 &nbsp; ![hard](https://img.shields.io/badge/-Hard-red) ![time](https://img.shields.io/badge/%E2%8F%B0-60m-blue) 
+# Spootify Coding Challenge 🎧 &nbsp; 
 
-&nbsp;
-# Goals/Outcomes ✨
-- To test knowledge of consuming APIs and handling responses
-- Loading state and knowing where and how to make multiple API calls efficiently
+This is a hard difficulty challenge from this excellent [set](https://github.com/alexgurr/react-coding-challenges) of challenges by Alex Gurr.
 
 &nbsp;
 # Pre-requisites ✅
