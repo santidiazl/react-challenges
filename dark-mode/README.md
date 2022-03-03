@@ -1,6 +1,6 @@
 # Dark Mode Coding Challenge 🌙
 
-This is a medium difficulty challenge from this excellent [set](https://github.com/alexgurr/react-coding-challenges) by Alex Gurr.
+This is a medium difficulty challenge from this excellent [set](https://github.com/alexgurr/react-coding-challenges) of challenges by Alex Gurr.
 
 # Requirements
 - Add dark-mode switching functionality to the *existing* dark-mode button
