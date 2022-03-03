@@ -1,4 +1,6 @@
-# This was a timed (90 minute) challenge I had to complete as part of an interview process.
+# Modals on modals
+
+This was a timed (90 minute) challenge I had to complete as part of an interview process.
 
 ## Requirements
 
