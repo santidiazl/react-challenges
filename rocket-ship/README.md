@@ -1,12 +1,6 @@
-# Rocket Ship Coding Challenge 🚀 &nbsp; ![easy](https://img.shields.io/badge/-Easy-brightgreen) ![time](https://img.shields.io/badge/%E2%8F%B0-10m-blue)
+# Rocket Ship Coding Challenge 🚀 &nbsp;
 
-&nbsp;
-## Goals / Outcomes ✨
-- To test basic understanding of render lifecycles in both functional and class components
-
-&nbsp;
-## Pre-requisites ✅
-None
+This is an easy difficulty challenge from this excellent [set](https://github.com/alexgurr/react-coding-challenges) of challenges by Alex Gurr.
 
 &nbsp;
 ## Requirements
